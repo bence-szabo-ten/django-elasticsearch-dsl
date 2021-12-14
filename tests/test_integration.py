@@ -4,7 +4,7 @@ import unittest
 
 from django.core.management import call_command
 from django.test import TestCase
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from six import StringIO
 
 from elasticsearch.exceptions import NotFoundError

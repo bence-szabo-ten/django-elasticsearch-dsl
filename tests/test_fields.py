@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from django.db.models.fields.files import FieldFile
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from mock import Mock, NonCallableMock
 from six import string_types
 

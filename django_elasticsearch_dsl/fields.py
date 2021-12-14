@@ -4,7 +4,7 @@ from types import MethodType
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 from django.db.models.fields.files import FieldFile
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 from django.utils.functional import Promise
 from elasticsearch_dsl.field import (
     Boolean,
@@ -83,7 +83,7 @@ class DEDField(Field):
 
         # convert lazy object like lazy translations to string
         if isinstance(instance, Promise):
-            return force_text(instance)
+            return force_str(instance)
 
         return instance
 
@@ -128,7 +128,7 @@ class ObjectField(DEDField, Object):
             is_iterable = bool(iter(objs))
         except TypeError:
             is_iterable = False
-        
+
         if is_iterable:
             return [
                 self._get_inner_field_data(obj, field_value_to_ignore)
